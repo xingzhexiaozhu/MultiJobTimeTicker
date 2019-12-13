@@ -3,7 +3,6 @@ package handler
 import (
 	"MultiJobTimeTicker/config"
 	"MultiJobTimeTicker/dao"
-	"encoding/json"
 	"fmt"
 	"log"
 	"math/rand"

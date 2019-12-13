@@ -11,15 +11,20 @@ type Config struct {
 	JobContent map[string]JobContent   `toml:"job_content"`
 }
 
-var Conf *Config
+var conf *Config
 
 func init() {
-	Conf = new(Config)
-	_, err := toml.Decode("conf.toml", &Conf)
+	conf = new(Config)
+	_, err := toml.Decode("conf.toml", &conf)
 	if err != nil {
 		panic(err)
 	}
 
 	//body, _ := json.Marshal(Conf)
 	//fmt.Println(body)
+}
+
+// 获取配置
+func GetConfig() *Config {
+	return conf
 }

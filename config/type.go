@@ -21,10 +21,9 @@ type TableConf struct {
 
 // GlobalConfig 定义全局push信息
 type GlobalConf struct {
-	JobNum             int `toml:"job_num"`
-	ConnTimeoutMs      int `toml:"conn_timeout_ms"`
-	ServeTimeoutMs     int `toml:"serve_timeout_ms"`
-	TypeSecondSendHour int `toml:"type_second_send_hour"`
+	JobNum         int `toml:"job_num"`
+	ConnTimeoutMs  int `toml:"conn_timeout_ms"`
+	ServeTimeoutMs int `toml:"serve_timeout_ms"`
 }
 
 // JobContent 配置化的消息内容
