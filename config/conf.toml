@@ -1,0 +1,48 @@
+# 数据库相关配置
+[database]
+[database.push]
+db="xiaozhu"
+host="127.0.0.1"
+port=3306
+user="caesar"
+pwd="******"
+charset="utf8"
+conn_time_out=5000
+time_out=20000
+max_conn_nums=2000
+max_idle_nums=20
+
+# 数据库表相关配置
+[sql_table]
+# 里程活动对应的表
+[sql_table.1]
+table="mobile"
+# 公交活动对应的表
+[sql_table.2]
+table="laptop"
+
+# 推送全局配置
+[global_conf]
+job_num=10
+conn_timeout_ms=500
+serve_timeout_ms=500
+type_second_send_hour=10
+
+# 消息内容配置
+[job_content]
+[job_content.1]
+type=1
+title="【任务一】"
+content="多任务定时器-任务一"
+url="https://www.baidu.com"
+freq="0 0 8 5/2 * ?"
+condition="type=1 and name=iphone and price<10000"
+force=0
+[job_content.2]
+type=1
+title="【任务二】"
+content="多任务定时器-任务二"
+url="https://www.google.com"
+freq="0 0 8 5/2 * ?"
+condition="type=1 and name=andriod and price<5000"
+force=0
