@@ -34,7 +34,7 @@ func (jobManager *JobManager) Start() {
 }
 
 func (jobManager *JobManager) dealJob() {
-	defer  jobManager.wg.Done()
+	defer jobManager.wg.Done()
 	defer func() {
 		if err := recover(); err != nil {
 			log.Printf("Error %v\n", debug.Stack())
@@ -42,9 +42,9 @@ func (jobManager *JobManager) dealJob() {
 	}()
 	for {
 		select {
-		case job := <- jobManager.Job:
+		case job := <-jobManager.Job:
 			go MapUserData[job.Type].SelectUserAndDoJob(job)
-		case <- jobManager.closeSignal:
+		case <-jobManager.closeSignal:
 			break
 		}
 	}
@@ -56,7 +56,7 @@ func (jobManager *JobManager) GetCompleteSignal() <-chan interface{} {
 
 func (jobManager *JobManager) Close() {
 	close(jobManager.closeSignal)
-	go func () {
+	go func() {
 		jobManager.wg.Wait()
 		close(jobManager.completeSignal)
 	}()

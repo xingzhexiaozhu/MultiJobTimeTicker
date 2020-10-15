@@ -111,7 +111,7 @@ func (userData *UserData) SelectUserAndDoJob(job *config.Job) {
 
 	var id int64
 	// 分批查找
-	for i := int64(0); i <= int64(count/200 + 1); i++ {
+	for i := int64(0); i <= int64(count/200+1); i++ {
 		//for {
 		var userList = make([]UserInfo, 0, 0)
 		searchSql := `SELECT * success FROM ` + userData.dao.GetTable() + ` WHERE id>?`

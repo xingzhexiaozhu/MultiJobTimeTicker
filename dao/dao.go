@@ -79,7 +79,7 @@ type SQLDao struct {
 }
 
 // 生成Dao实例
-func NewSQLDao(conf *config.DataBaseConf, table string)(*SQLDao, error) {
+func NewSQLDao(conf *config.DataBaseConf, table string) (*SQLDao, error) {
 	dbConn, err := dbConnManager.getDBConn(conf)
 	if err != nil {
 		err = fmt.Errorf("get sql dao err, %s", err.Error())

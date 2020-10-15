@@ -54,5 +54,5 @@ func signalProc() {
 	signal.Notify(ch, syscall.SIGINT, syscall.SIGALRM, syscall.SIGTERM, syscall.SIGUSR1)
 
 	handler.JOBManager.Close()
-	<- handler.JOBManager.GetCompleteSignal()
+	<-handler.JOBManager.GetCompleteSignal()
 }
